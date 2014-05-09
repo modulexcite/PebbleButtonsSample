@@ -1,0 +1,18 @@
+{
+    "longName": "ButtonsHandlerSample",
+    "versionCode": 1,
+    "shortName": "ButtonsHandlerSample",
+    "capabilities": [
+        ""
+    ],
+    "resources": {
+        "media": []
+    },
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": false
+    },
+    "uuid": "1c7b06f8-e3c4-41e8-8fae-925b94770108",
+    "appKeys": {},
+    "companyName": "bcapuano@gmail.com"
+}
