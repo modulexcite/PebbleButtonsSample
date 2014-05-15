@@ -1,5 +1,5 @@
 {
-    "versionLabel": "1.5.50415.2",
+    "versionLabel": "1.5.50415.4",
     "watchapp": {
         "watchface": false
     },
@@ -7,8 +7,8 @@
         "location"
     ],
     "appKeys": {},
-    "longName": "ButtonsHandlerSample",
-    "shortName": "ButtonsHandlerSample",
+    "longName": "Button Soccer Sample",
+    "shortName": "Button Soccer",
     "resources": {
         "media": [
             {
