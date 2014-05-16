@@ -1,8 +1,11 @@
+// bruno 04
 #include <pebble.h>
 
 Window *window;
-GBitmap *nino_bitmap;
-BitmapLayer *nino_layer;
+GBitmap *playerWithSoccer_bitmap;
+GBitmap *playerWithNoSoccer_bitmap;
+GBitmap *ball_bitmap;
+BitmapLayer *player_layer;
 int imageYLocation;
 int difY;
 
@@ -32,6 +35,15 @@ void animate_layer(Layer *layer, GRect *start, GRect *finish, int duration, int 
 	animation_schedule((Animation*) anim);
 }
 
+//
+void move_player()
+{
+	GRect start = GRect(60, imageYLocation, 48, 48);
+	GRect finish = GRect(60, difY, 48, 48);
+	animate_layer(bitmap_layer_get_layer(player_layer), &start, &finish, 300, 500);
+	imageYLocation = difY;
+}
+
 /* Buttons Handlers */
 void up_click_handler(ClickRecognizerRef recognizer, void *context)
 {
@@ -39,10 +51,7 @@ void up_click_handler(ClickRecognizerRef recognizer, void *context)
 	difY = imageYLocation - 10;
 	if (difY >= 0)
 	{
-		GRect start = GRect(60, imageYLocation, 48, 48);
-		GRect finish = GRect(60, difY, 48, 48);
-		animate_layer(bitmap_layer_get_layer(nino_layer), &start, &finish, 300, 500);
-		imageYLocation = difY;
+		move_player();
 		APP_LOG(APP_LOG_LEVEL_DEBUG, "Button Up ! Y: " + imageYLocation);
 	}
 }
@@ -52,10 +61,7 @@ void down_click_handler(ClickRecognizerRef recognizer, void *context)
 	int difY = imageYLocation + 10;
 	if (difY <= 120)
 	{
-		GRect start = GRect(60, imageYLocation, 48, 48);
-		GRect finish = GRect(60, difY, 48, 48);
-		animate_layer(bitmap_layer_get_layer(nino_layer), &start, &finish, 300, 500);
-		imageYLocation = difY;
+		move_player();
 		APP_LOG(APP_LOG_LEVEL_DEBUG, "Button Down ! Y: " + imageYLocation);
 	}
 }
@@ -76,14 +82,15 @@ void handle_init(void) {
 	// Create a window and text layer
 	window = window_create();
 
-	//Load bitmaps into GBitmap structures
-	//The ID you chose when uploading is prefixed with 'RESOURCE_ID_'
-	nino_bitmap = gbitmap_create_with_resource(RESOURCE_ID_FOOTBALL);
+	//Load bitmaps into GBitmap structures The ID you chose when uploading is prefixed with 'RESOURCE_ID_'
+	playerWithSoccer_bitmap = gbitmap_create_with_resource(RESOURCE_ID_FOOTBALL);
+	playerWithNoSoccer_bitmap = gbitmap_create_with_resource(RESOURCE_ID_NOFOOTBALL);
+	ball_bitmap = gbitmap_create_with_resource(RESOURCE_ID_BALL);
 
 	//Create BitmapLayers to show GBitmaps and add to Window
-	nino_layer = bitmap_layer_create(GRect(60, 60, 48, 48));
-	bitmap_layer_set_bitmap(nino_layer, nino_bitmap);
-	layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(nino_layer));
+	player_layer = bitmap_layer_create(GRect(60, 60, 48, 48));
+	bitmap_layer_set_bitmap(player_layer, playerWithSoccer_bitmap);
+	layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(player_layer));
 	imageYLocation = 60;
 
 	// buttons handlers
@@ -96,8 +103,10 @@ void handle_init(void) {
 void handle_deinit(void) {
 
 	//Destroy GBitmaps and BitmapLayers
-	gbitmap_destroy(nino_bitmap);
-	bitmap_layer_destroy(nino_layer);
+	gbitmap_destroy(playerWithSoccer_bitmap);
+	gbitmap_destroy(playerWithNoSoccer_bitmap);
+	gbitmap_destroy(ball_bitmap);
+	bitmap_layer_destroy(player_layer);
 
 	// Destroy the window
 	window_destroy(window);
