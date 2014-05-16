@@ -1,5 +1,8 @@
-﻿Build started 5/16/2014 5:31:20 PM.
+﻿Build started 5/16/2014 5:33:09 PM.
+     1>Project "E:\srcElBruno\GitHub\PebbleButtonsSample\vs\PebbleButtonSample\PebbleButtonSample.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.MakeFile.Targets(37,5): warning MSB8005: The property 'NMakeBuildCommandLine' doesn't exist.  Skipping...
+     1>Done Building Project "E:\srcElBruno\GitHub\PebbleButtonsSample\vs\PebbleButtonSample\PebbleButtonSample.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.03
+Time Elapsed 00:00:00.32
