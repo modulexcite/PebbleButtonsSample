@@ -1,30 +1,30 @@
 {
-    "versionLabel": "1.5.50415.4",
-    "watchapp": {
-        "watchface": false
-    },
     "capabilities": [
         "location"
     ],
-    "appKeys": {},
-    "longName": "Button Soccer Sample",
-    "shortName": "Button Soccer",
+    "uuid": "1c7b06f8-e3c4-41e8-8fae-925b94770108",
     "resources": {
         "media": [
             {
                 "menuIcon": true,
-                "file": "images/Balon 24x24.png",
+                "name": "MENU_ICON",
                 "type": "png",
-                "name": "MENU_ICON"
+                "file": "images/Balon 24x24.png"
             },
             {
-                "file": "images/Football 48x48.png",
+                "name": "FOOTBALL",
                 "type": "png",
-                "name": "FOOTBALL"
+                "file": "images/Football 48x48.png"
             }
         ]
     },
-    "versionCode": 1,
+    "longName": "Button Soccer Sample",
+    "versionLabel": "1.5.50415.4",
     "companyName": "bcapuano@gmail.com",
-    "uuid": "1c7b06f8-e3c4-41e8-8fae-925b94770108"
+    "versionCode": 1,
+    "appKeys": {},
+    "watchapp": {
+        "watchface": false
+    },
+    "shortName": "Button Soccer"
 }
